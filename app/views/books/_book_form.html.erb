@@ -1,0 +1,11 @@
+<%= form_for book do |f|%>
+	<% if book.errors.any?%>
+		<% book.errors.full_messages.each do |message|%>
+			<%=message%><br>
+		<%end%>
+	<% end %>
+
+	<%= f.select :author_id, options_for_select(@authors.map{|a| [a.name, a.id]}), {prompt: "Select Author"} %>
+	Name:<%= f.text_field :name %>
+	<%=f.submit%>
+<%end%>

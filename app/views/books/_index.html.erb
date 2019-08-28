@@ -1,0 +1,25 @@
+	
+	 <table class="table  table-responsive">
+	 	<thead>
+	      		<tr>
+	      			<th>Books </th>
+	      			<th colspan="2">Actions </th>
+	      		</tr>
+	      	</thead>
+		<tbody>
+			
+			<% books.each do|b|%>
+				<tr>
+					<td><%= b.name%></td>
+					<td><%= link_to "Edit", edit_book_path(b.id),remote: true %></td>
+					<td><%= link_to "Delete", book_path(b.id), method: :delete %></td>
+				</tr>
+			<%end%>
+			<tr>
+    			<td colspan="2"> <%= link_to "Add new Books", new_book_path, remote: true %></td>
+    			<td>Total Record :<%= books.count%></td>
+	     </tr>
+		</tbody>
+	 </table>
+
+	

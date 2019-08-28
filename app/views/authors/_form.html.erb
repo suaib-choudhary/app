@@ -1,0 +1,13 @@
+<%= form_for @author do |f| %>
+
+	<% if @author.errors.any?%>
+		<% @author.errors.full_messages.each do |message|%>
+			<%=message%><br>
+		<%end%>
+	<% end %>
+
+
+	Name : <%=f.text_field :name%><br>
+	Contact : <%=f.text_field :contact%><br>
+	<%=f.submit "save"%>
+<%end %>
